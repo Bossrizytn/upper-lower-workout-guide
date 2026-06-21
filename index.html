@@ -272,6 +272,8 @@
     }
 
     .motion {
+      position: relative;
+      overflow: hidden;
       display: grid;
       place-items: center;
       padding: 10px;
@@ -286,6 +288,46 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .motion-gif,
+    .motion-fallback {
+      width: 100%;
+    }
+
+    .motion-gif {
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .motion-fallback.is-hidden-until-fail {
+      display: none;
+    }
+
+    .motion.gif-failed .motion-gif {
+      display: none;
+    }
+
+    .motion.gif-failed .motion-fallback.is-hidden-until-fail {
+      display: block;
+    }
+
+    .motion-source {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(255, 252, 247, 0.9);
+      border: 1px solid rgba(23, 33, 25, 0.08);
+      color: var(--accent-2);
+      font-size: 0.72rem;
+      line-height: 1;
+      font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .exercise h3 {
@@ -454,7 +496,7 @@
       <p class="lead">
         Bu plan, saglikli bir yetiskinin genel kas gelisimi, kuvvet artisi ve antrenman surdurulebilirligi icin tasarlandi.
         Yapi: <strong>2 gun upper, 1 gun lower, 1 gun full body</strong>. Hareketlerin hepsi makine veya dumbbell ile secildi.
-        Asagidaki animasyonlar sematik ve teknik ipucu amaclidir; birebir anatomi cizimi degildir.
+        Asagidaki gorseller, uygun olan hareketlerde ucretsiz GIF animasyonlar ve digerlerinde ozel SVG fallback kullanir; teknik ipucu amaclidir, birebir anatomi cizimi degildir.
       </p>
       <div class="hero-grid">
         <div class="metric">
@@ -506,7 +548,7 @@
       <div class="footer-grid" id="notes"></div>
       <div class="fine-print">
         Mevcut omuz, bel, diz, kalp-damar, fitik, operasyon veya kronik agri gecmisin varsa bu plani doktor ya da fizyoterapist ile gozden gecirmen en guvenli yaklasim olur.
-        Hareket sirasinda keskin agri varsa o paterni zorlamadan degistir.
+        Hareket sirasinda keskin agri varsa o paterni zorlamadan degistir. Bazi kartlarda ucretsiz kutuphaneden gelen yakin varyasyon GIF kullanilir; zayif eslesen hareketlerde ozel SVG korunur.
       </div>
     </section>
 
@@ -970,6 +1012,105 @@
       }
     ];
 
+    const exerciseMedia = {
+      "Machine Chest Press": {
+        gifUrl: "https://static.exercisedb.dev/media/DOoWcnA.gif",
+        label: "Free GIF"
+      },
+      "Neutral-Grip Lat Pulldown": {
+        gifUrl: "https://static.exercisedb.dev/media/rkg41Fb.gif",
+        label: "Free GIF"
+      },
+      "Chest-Supported Dumbbell Row": {
+        gifUrl: "https://static.exercisedb.dev/media/7vG5o25.gif",
+        label: "Free GIF"
+      },
+      "Seated Dumbbell Shoulder Press": {
+        gifUrl: "https://static.exercisedb.dev/media/znQUdHY.gif",
+        label: "Free GIF"
+      },
+      "Pec Deck": {
+        gifUrl: "https://static.exercisedb.dev/media/v3xmPAR.gif",
+        label: "Free GIF"
+      },
+      "Dumbbell Lateral Raise": {
+        gifUrl: "https://static.exercisedb.dev/media/DsgkuIt.gif",
+        label: "Free GIF"
+      },
+      "Incline Dumbbell Curl": {
+        gifUrl: "https://static.exercisedb.dev/media/ae9UoXQ.gif",
+        label: "Free GIF"
+      },
+      "Seated Dumbbell Overhead Triceps Extension": {
+        gifUrl: "https://static.exercisedb.dev/media/kont8Ut.gif",
+        label: "Free GIF"
+      },
+      "Leg Press": {
+        gifUrl: "https://static.exercisedb.dev/media/2Qh2J1e.gif",
+        label: "Free GIF"
+      },
+      "Dumbbell Romanian Deadlift": {
+        gifUrl: "https://static.exercisedb.dev/media/rR0LJzx.gif",
+        label: "Free GIF"
+      },
+      "Seated Leg Curl": {
+        gifUrl: "https://static.exercisedb.dev/media/Zg3XY7P.gif",
+        label: "Free GIF"
+      },
+      "Dumbbell Bulgarian Split Squat": {
+        gifUrl: "https://static.exercisedb.dev/media/qx4fgX7.gif",
+        label: "Yakin GIF"
+      },
+      "Leg Extension": {
+        gifUrl: "https://static.exercisedb.dev/media/my33uHU.gif",
+        label: "Free GIF"
+      },
+      "Standing Calf Raise Machine": {
+        gifUrl: "https://static.exercisedb.dev/media/ykUOVze.gif",
+        label: "Free GIF"
+      },
+      "Incline Dumbbell Press": {
+        gifUrl: "https://static.exercisedb.dev/media/ns0SIbU.gif",
+        label: "Free GIF"
+      },
+      "Seated Row Machine": {
+        gifUrl: "https://static.exercisedb.dev/media/7I6LNUG.gif",
+        label: "Free GIF"
+      },
+      "Machine Shoulder Press": {
+        gifUrl: "https://static.exercisedb.dev/media/67n3r98.gif",
+        label: "Free GIF"
+      },
+      "Reverse Pec Deck": {
+        gifUrl: "https://static.exercisedb.dev/media/myfUsKf.gif",
+        label: "Free GIF"
+      },
+      "Dumbbell Hammer Curl": {
+        gifUrl: "https://static.exercisedb.dev/media/slDvUAU.gif",
+        label: "Free GIF"
+      },
+      "Machine Dip": {
+        gifUrl: "https://static.exercisedb.dev/media/BRImeP8.gif",
+        label: "Free GIF"
+      },
+      "Goblet Squat": {
+        gifUrl: "https://static.exercisedb.dev/media/yn8yg1r.gif",
+        label: "Free GIF"
+      },
+      "One-Arm Dumbbell Row": {
+        gifUrl: "https://static.exercisedb.dev/media/C0MA9bC.gif",
+        label: "Free GIF"
+      },
+      "Dumbbell Walking Lunge": {
+        gifUrl: "https://static.exercisedb.dev/media/IZVHb27.gif",
+        label: "Yakin GIF"
+      },
+      "Machine Ab Crunch": {
+        gifUrl: "https://static.exercisedb.dev/media/ZnJHhMk.gif",
+        label: "Free GIF"
+      }
+    };
+
     function renderPrinciples() {
       const wrap = document.getElementById("principles");
       wrap.innerHTML = principles.map((item, index) => `
@@ -1011,7 +1152,7 @@
       return `
         <article class="exercise">
           <div class="exercise-top">
-            <div class="motion">${motionMap[exercise.pattern]()}</div>
+            ${renderMotion(exercise)}
             <div>
               <h3>${exercise.name}</h3>
               <div class="badge-row">
@@ -1038,6 +1179,36 @@
             </div>
           </div>
         </article>
+      `;
+    }
+
+    function renderMotion(exercise) {
+      const media = exerciseMedia[exercise.name];
+      const fallback = motionMap[exercise.pattern]();
+
+      if (!media) {
+        return `
+          <div class="motion">
+            <div class="motion-fallback">${fallback}</div>
+            <span class="motion-source">SVG</span>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="motion">
+          <img
+            class="motion-gif"
+            src="${media.gifUrl}"
+            alt="${exercise.name} animation"
+            loading="lazy"
+            decoding="async"
+            referrerpolicy="no-referrer"
+            onerror="this.closest('.motion').classList.add('gif-failed')"
+          >
+          <div class="motion-fallback is-hidden-until-fail">${fallback}</div>
+          <span class="motion-source">${media.label}</span>
+        </div>
       `;
     }
 
