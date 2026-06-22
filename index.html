@@ -117,6 +117,35 @@
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(50, 93, 79, 0.14);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--accent-2);
+      text-decoration: none;
+      font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.84rem;
+    }
+
+    .hero-link.hero-link-solid {
+      background: var(--accent-2);
+      color: #f7f2ea;
+      border-color: var(--accent-2);
+    }
+
     .metric,
     .card,
     .exercise,
@@ -498,6 +527,11 @@
         Yapi: <strong>2 gun upper, 1 gun lower, 1 gun full body</strong>. Hareketlerin hepsi makine veya dumbbell ile secildi.
         Asagidaki gorseller, uygun olan hareketlerde ucretsiz GIF animasyonlar ve digerlerinde ozel SVG fallback kullanir; teknik ipucu amaclidir, birebir anatomi cizimi degildir.
       </p>
+      <div class="hero-actions">
+        <a class="hero-link hero-link-solid" href="./cut-program.html">2 Haftalik Cut Programi</a>
+        <a class="hero-link" href="#days">Antrenman Planina Git</a>
+        <a class="hero-link" href="#sources">Kaynaklar</a>
+      </div>
       <div class="hero-grid">
         <div class="metric">
           <strong>60-80 dk</strong>

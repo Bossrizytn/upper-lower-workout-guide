@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2 Haftalik Turkiye Cut Programi</title>
+  <style>
+    :root {
+      --bg: #f5f0e7;
+      --panel: rgba(255, 252, 247, 0.92);
+      --ink: #192019;
+      --muted: #566158;
+      --line: rgba(25, 32, 25, 0.12);
+      --accent: #bf5c2c;
+      --accent-soft: rgba(191, 92, 44, 0.14);
+      --accent-2: #305746;
+      --accent-2-soft: rgba(48, 87, 70, 0.14);
+      --shadow: 0 22px 48px rgba(25, 32, 25, 0.11);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(191, 92, 44, 0.18), transparent 32%),
+        radial-gradient(circle at 84% 14%, rgba(48, 87, 70, 0.16), transparent 30%),
+        linear-gradient(180deg, #f7f2ea 0%, #eee5d9 100%);
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      line-height: 1.55;
+    }
+
+    .page {
+      width: min(1220px, calc(100vw - 32px));
+      margin: 24px auto 48px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.95), rgba(247, 240, 230, 0.94)),
+        linear-gradient(120deg, rgba(191, 92, 44, 0.08), rgba(48, 87, 70, 0.08));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -90px auto;
+      width: 290px;
+      height: 290px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(191, 92, 44, 0.22), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .micro-pill,
+    .metric strong,
+    h1,
+    h2,
+    h3,
+    .cta,
+    .metric span strong,
+    .day-badge,
+    .meal-label,
+    .stat-label,
+    .source-tag {
+      font-family: "Avenir Next Condensed", "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-2);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(2.35rem, 5vw, 4.5rem);
+      line-height: 0.97;
+      max-width: 10.5ch;
+    }
+
+    .lead {
+      max-width: 76ch;
+      margin: 18px 0 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .hero-grid,
+    .section-grid,
+    .days-grid,
+    .footer-grid,
+    .shopping-grid,
+    .meal-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-grid {
+      margin-top: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    }
+
+    .metric,
+    .card,
+    .day-card,
+    .footer-card,
+    .shopping-card,
+    .meal-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 24px rgba(25, 32, 25, 0.05);
+    }
+
+    .metric {
+      padding: 18px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1;
+      color: var(--accent-2);
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(48, 87, 70, 0.14);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--accent-2);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.84rem;
+    }
+
+    .cta.cta-solid {
+      background: var(--accent-2);
+      color: #f7f2ea;
+      border-color: var(--accent-2);
+    }
+
+    section {
+      margin-top: 28px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 68ch;
+      color: var(--muted);
+    }
+
+    .section-grid {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .card,
+    .footer-card,
+    .shopping-card {
+      padding: 20px;
+    }
+
+    .card h3,
+    .footer-card h3,
+    .shopping-card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .footer-card p,
+    .shopping-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card ul,
+    .footer-card ul,
+    .shopping-card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .card li,
+    .footer-card li,
+    .shopping-card li {
+      margin-top: 7px;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .micro-pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(25, 32, 25, 0.06);
+      color: var(--accent-2);
+      font-size: 0.83rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .days-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .week-wrap {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(250, 244, 236, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .week-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .week-head p {
+      margin: 10px 0 0;
+      max-width: 72ch;
+      color: var(--muted);
+    }
+
+    .week-tag {
+      flex-shrink: 0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--accent-2-soft);
+      color: var(--accent-2);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .week-days {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .day-card {
+      overflow: hidden;
+    }
+
+    .day-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid rgba(25, 32, 25, 0.08);
+    }
+
+    .day-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .day-badge {
+      flex-shrink: 0;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(191, 92, 44, 0.12);
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      height: fit-content;
+    }
+
+    .stat-row {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding: 0 16px 14px;
+    }
+
+    .stat {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(25, 32, 25, 0.04);
+      border: 1px solid rgba(25, 32, 25, 0.06);
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      display: block;
+      margin-top: 2px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .meal-grid {
+      grid-template-columns: 1fr;
+      padding: 0 16px 16px;
+    }
+
+    .meal-card {
+      padding: 12px 14px;
+    }
+
+    .meal-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      color: var(--accent-2);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .meal-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .day-note {
+      margin: 0 16px 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(48, 87, 70, 0.08), rgba(191, 92, 44, 0.08));
+      border: 1px solid rgba(48, 87, 70, 0.12);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .shopping-grid,
+    .footer-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .fine-print {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px dashed rgba(25, 32, 25, 0.2);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.5);
+      font-size: 0.92rem;
+    }
+
+    .source-tag {
+      display: inline-flex;
+      margin-top: 12px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(25, 32, 25, 0.06);
+      color: var(--accent-2);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+    }
+
+    a {
+      color: var(--accent-2);
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100vw - 20px, 1220px);
+        margin: 10px auto 28px;
+      }
+
+      .hero,
+      .week-wrap {
+        padding: 20px;
+      }
+
+      .section-head,
+      .week-head,
+      .day-head {
+        display: block;
+      }
+
+      .week-tag,
+      .day-badge {
+        display: inline-block;
+        margin-top: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">2 Hafta / Turkiye Gidalari / Cut</div>
+      <h1>Hizli ama mantikli bir 2 haftalik yag kaybi fazi</h1>
+      <p class="lead">
+        Bu rehber, <strong>180 cm ve 100 kg</strong> bir yetiskin icin; mevcut 4 gunluk antrenman planinla birlikte kullanilmak uzere hazirlandi.
+        Hedef, kasi olabildigince koruyup yag kaybini hizlandirmak. Buradaki kalori ve makro hedefleri; yas, cinsiyet, adim sayisi, ilaclar ve tibbi gecmis verilmedigi icin <strong>pratik bir baslangic cizgisi</strong> olarak tasarlandi, tibbi tedavi yerine gecmez.
+      </p>
+      <div class="cta-row">
+        <a class="cta cta-solid" href="./index.html">Antrenman Sayfasina Don</a>
+        <a class="cta" href="#plan">14 Gun Takvim</a>
+        <a class="cta" href="#shopping">Market Listesi</a>
+        <a class="cta" href="#sources">Kaynaklar</a>
+      </div>
+      <div class="hero-grid">
+        <div class="metric">
+          <strong>2000-2200 kcal</strong>
+          <span>Ortalama gunluk baslangic araligi</span>
+        </div>
+        <div class="metric">
+          <strong>170-190 g</strong>
+          <span>Gunluk protein hedefi</span>
+        </div>
+        <div class="metric">
+          <strong>8-12k adim</strong>
+          <span>Her gun, tempolu yuruyus dahil</span>
+        </div>
+        <div class="metric">
+          <strong>0.5-1.0 kg/hafta</strong>
+          <span>Guvenli yag kaybi hedefi; ilk hafta su agirligi daha hizli oynayabilir</span>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Temel Mantik</h2>
+          <p>Amac, cok dusuk kalorili bir soka girmeden agresif ama surdurulebilir bir acik yaratmak. Benim cikardigim pratik sentez su: yuksek protein, olculu karbonhidrat, sebze hacmi, sifir sivi kalori, net takip.</p>
+        </div>
+      </div>
+      <div class="section-grid" id="principles"></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Baslangic Cizgisi</h2>
+          <p>Bu sayfa, senin mevcut antrenman duzenini esas aliyor: haftada 4 sert gun. Metrikler duzenli tarti ve performansa gore 7 gunluk ortalamayla ayarlanacak.</p>
+        </div>
+      </div>
+      <div class="section-grid" id="targets"></div>
+    </section>
+
+    <section id="plan">
+      <div class="section-head">
+        <div>
+          <h2>14 Gun Takvim</h2>
+          <p>Program, onceki sayfadaki split ile uyumlu: her hafta `Upper A / Lower / Upper B / Full Body` ve aralara yerlesen dinlenme gunleri. Eger antrenman gunlerin farkliysa, ayni tipteki kartlari yer degistirmen yeterli.</p>
+        </div>
+      </div>
+      <div class="days-grid" id="weeks"></div>
+      <div class="fine-print">
+        Kalori ve protein degerleri yaklasiktir. Pirinc, bulgur ve yulaf miktarlari <strong>cig</strong>; et, tavuk, kofte, balik miktarlari ise <strong>pisirmeye yakin son porsiyon</strong> mantigiyla yazildi. Yagi serbest dokersen plan kolayca 300-500 kcal yukari kayar; bu yuzden zeytinyagini kasikla olc.
+      </div>
+    </section>
+
+    <section id="shopping">
+      <div class="section-head">
+        <div>
+          <h2>Market ve Hazirlik</h2>
+          <p>Turkiye'de zincir marketler ve pazardan rahat bulunacak urunlerle yazdim. Asagidaki liste bir hafta icindir; 2 hafta icin kabaca ikiyle carpabilirsin.</p>
+        </div>
+      </div>
+      <div class="shopping-grid" id="shopping-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Disarida Yeme</h2>
+          <p>14 gun boyunca mukemmel olmak gerekmiyor; ama disari yeme secimleri kotuyse yag kaybi hizla kilitlenir. Burada en az hasarla cikma plani var.</p>
+        </div>
+      </div>
+      <div class="footer-grid" id="restaurant-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Takip ve Ayar</h2>
+          <p>Keskin kalori kesmek tek basina zeki bir strateji degil. Ne zaman azaltacagini, ne zaman sabit kalacagini bilirsen 2 haftalik faz daha guclu calisir.</p>
+        </div>
+      </div>
+      <div class="footer-grid" id="adjustment-grid"></div>
+      <div class="fine-print">
+        Bu plani <strong>diyabet ilaci/insulin</strong>, <strong>tansiyon ilaci</strong>, <strong>bobrek hastaligi</strong>, <strong>gut</strong>, <strong>karaciger hastaligi</strong>, <strong>yeme bozuklugu gecmisi</strong>, ciddi reflU/GI sorunlari veya son donem operasyon gecmisi varsa doktor/diyetisyen olmadan agresiflestirme.
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="section-head">
+        <div>
+          <h2>Kaynaklar</h2>
+          <p>Asagidaki kaynaklarla guvenli kilo kaybi hizi, enerji acigi, aktivite ve yerel beslenme paternini sabitledim. Protein hedefi ise bu veriler ve senin mevcut agirlik-antrenman durumundan cikardigim pratik bir uygulama araligidir.</p>
+        </div>
+      </div>
+      <div class="footer-grid" id="sources-grid"></div>
+    </section>
+  </main>
+
+  <script>
+    const principles = [
+      {
+        title: "Hizli ama saglikli ne demek?",
+        body:
+          "CDC'ye gore daha istikrarli kilo kaybi, yaklasik haftada 1-2 lb yani kabaca 0.5-1.0 kg bandinda. Bundan daha hizli giden planlar ilk gunlerde moral verse de, acik büyüdükçe acikma, performans dususu ve geri sekme riski artar.",
+        list: [
+          "Ilk 4-7 gunde tartida daha buyuk dusus gorebilirsin; bu genelde su ve glikojen oynakligidir.",
+          "Asil amac, 14 gun sonunda sadece hafif degil daha duzgun gorunmek: daha az odem, daha iyi bel cevresi, daha net gunluk duzen."
+        ]
+      },
+      {
+        title: "Kalori acigi motoru",
+        body:
+          "Obezite yonetimi rehberlerinde ilk hedef genelde 500-750 kcal/gun acik yaratmaktir. Bu plan o fikrin spor salonu icin pratiklesmis versiyonu: antrenman gunu biraz daha yuksek, dinlenme gunu biraz daha dusuk enerji.",
+        list: [
+          "Cok sert acik kisa surede tartiyi indirir ama kas korumayi ve antrenman kalitesini zorlar.",
+          "Burada hizin kaynagi ac kalmak degil: sivi kaloriyi sifirlamak, yagi olcmek ve proteinle tokluk yaratmak."
+        ]
+      },
+      {
+        title: "Protein neden yuksek?",
+        body:
+          "Yag kaybi sirasinda daha yuksek protein alimi, kas kutlesini daha iyi korumaya yardim eder. Ben bu nedenle 170-190 g/gun gibi pratikte kuvvet antrenmani yapan 100 kg bir bireyin uygulayabilecegi yuksek bir hedef kullandim.",
+        list: [
+          "Bu aralik, resmi RDA'dan yuksek; bunu bilincli yapiyorum cunku sen cut fazindasin ve agirlik calisiyorsun.",
+          "Protein gun icine yayilinca tokluk ve ogun kontrolu de kolaylasir."
+        ]
+      },
+      {
+        title: "Turkiye mutfagina uyarlama",
+        body:
+          "Plan, TUBER mantigina ters gitmeden; yumurta, yogurt, lor, tavuk, kofte, bulgur, mercimek, nohut, sebze ve zeytinyagini merkeze aliyor. Yani pahali 'fit' urunlerden cok, markette ve pazarda bulunan gidalara yaslaniyor.",
+        list: [
+          "Bulgur, ekmek, yulaf ve patates tamamen yasak degil; sadece olculu.",
+          "Baklava, borek, pogaca, sekerli icecekler ve rastgele kuruyemis dokme ise 14 gunlugune net kisitli."
+        ]
+      }
+    ];
+
+    const targets = [
+      {
+        title: "Antrenman Gunu",
+        body:
+          "Baslangic hedefin: yaklasik 2150-2250 kcal, 175-190 g protein, 180-220 g karbonhidrat, 60-70 g yag.",
+        pills: ["Pre/posta biraz daha karbonhidrat", "Protein sabit", "Yag kontrollu"]
+      },
+      {
+        title: "Dinlenme Gunu",
+        body:
+          "Baslangic hedefin: yaklasik 1950-2050 kcal, 175-190 g protein, 120-160 g karbonhidrat, 65-75 g yag.",
+        pills: ["Karbonhidrat bir tik asagi", "Sebze hacmi yuksek", "Protein yine sabit"]
+      },
+      {
+        title: "Kime gore hazir?",
+        body:
+          "Varsayimim: saglikli bir yetiskinsin, haftada 4 gun agirlik calisiyorsun, gunluk hayatinda en az orta seviyede hareket yaratabiliyorsun ve tarti/veri takibi yapacaksin.",
+        pills: ["Yas ve cinsiyet verilmedi", "Bu yuzden pratik sabit kullandim", "7 gunluk veriyle ayarlanacak"]
+      },
+      {
+        title: "Ne zaman ayar verilir?",
+        body:
+          "Ilk 7 gun bitmeden kaloriyle oynama. 7 gunluk ortalama agirlik neredeyse hic inmiyorsa 150-200 kcal kes; performans sert dusup bas donmesi artiyorsa 100-150 kcal ekle.",
+        pills: ["Gunluk tarti", "Haftalik ortalama", "Bel cevresi takibi"]
+      }
+    ];
+
+    const weeks = [
+      {
+        title: "Hafta 1",
+        badge: "Baslangic ve Temizleme",
+        intro:
+          "Bu hafta en buyuk isi disaridan gelen fazla kalori, sivi kalori ve kontrolsuz yag dokme aliskanligi yapar. Tarti ilk haftada su atimi nedeniyle daha hizli hareket edebilir.",
+        days: [
+          {
+            name: "Pazartesi / Upper A",
+            tag: "Antrenman",
+            summary: "Haftaya duzenli ve yuksek proteinle giris.",
+            calories: "~2150 kcal",
+            protein: "~175 g",
+            meals: [
+              { label: "Kahvalti", text: "3 yumurtali menemen + 120 g lor + 2 dilim tam bugday ekmek + domates ve salatalik" },
+              { label: "Ogle", text: "180 g izgara tavuk gogus + 75 g cig bulgurdan pilav + buyuk salata" },
+              { label: "Ara", text: "250 g suzme yogurt + 1 orta boy elma" },
+              { label: "Aksam", text: "180 g az yagli kofte + 250 g firin patates + 200 g cacik" }
+            ],
+            note: "Kahveyi antrenmandan 45-60 dk once ic. Bugun sivi kalori sifir: kola, meyve suyu, sekerli kahve yok."
+          },
+          {
+            name: "Sali / Dinlenme",
+            tag: "Dinlenme",
+            summary: "Karbonhidrati bir tik kis, proteini sabit tut.",
+            calories: "~2000 kcal",
+            protein: "~180 g",
+            meals: [
+              { label: "Kahvalti", text: "300 g yogurt + 60 g yulaf + tarcin + 1 kucuk muz" },
+              { label: "Ogle", text: "1 buyuk ton baligi konservesi + 100 g haslanmis nohut + yesillik + 1 tam bugday lavash" },
+              { label: "Ara", text: "2 haslanmis yumurta + salatalik + maden suyu" },
+              { label: "Aksam", text: "200 g hindi veya tavuk sote + kabak, mantar, biber karisimi + 150 g yogurt" }
+            ],
+            note: "Acilir gibi olursan once 500 ml su ic ve 10 dk bekle. Hala acsan 150-200 g ekstra yogurt ekle."
+          },
+          {
+            name: "Carsamba / Lower",
+            tag: "Antrenman",
+            summary: "Bacak gunu: performans dusmesin diye karbonhidrati antrenman cevresine koy.",
+            calories: "~2200 kcal",
+            protein: "~185 g",
+            meals: [
+              { label: "Kahvalti", text: "4 yumurtali omlet + 60 g lor/beyaz peynir + 2 dilim tam bugday ekmek" },
+              { label: "Ogle", text: "200 g tavuk + 70 g cig pirinc pilavi + coban salata" },
+              { label: "Ara", text: "250 g yogurt + 1 muz" },
+              { label: "Aksam", text: "200 g kiymali sebze yemegi (kabak veya taze fasulye) + 200 g yogurt + 200 g haslanmis patates" }
+            ],
+            note: "Lower gununde bacak pompasi icin karb biraz daha yuksek, ama yag hala kontrollu."
+          },
+          {
+            name: "Persembe / Dinlenme",
+            tag: "Dinlenme",
+            summary: "Basit ve temiz gun; odem yonetimi icin cok tuzlu disari yemek yok.",
+            calories: "~1980 kcal",
+            protein: "~170 g",
+            meals: [
+              { label: "Kahvalti", text: "2 yumurta + 150 g lor + domates, salatalik, roka + 2 ince dilim ekmek" },
+              { label: "Ogle", text: "1.5 kepce mercimek corbasi + 180 g izgara tavuk + buyuk salata" },
+              { label: "Ara", text: "1 elma + 20 g badem" },
+              { label: "Aksam", text: "180 g firin balik veya tavuk + bol yesillik + 150 g yogurt + 150 g patates" }
+            ],
+            note: "Aksam acikligi geliyorsa once salata hacmini buyut; zeytinyagini yine olc."
+          },
+          {
+            name: "Cuma / Upper B",
+            tag: "Antrenman",
+            summary: "Ust vucut gununde yulaf ve yogurt iyi calisir; sindirimi kolay.",
+            calories: "~2180 kcal",
+            protein: "~180 g",
+            meals: [
+              { label: "Kahvalti", text: "250 g suzme yogurt + 70 g yulaf + cilek + 2 haslanmis yumurta" },
+              { label: "Ogle", text: "180 g kofte + 70 g cig bulgur pilavi + coban salata" },
+              { label: "Ara", text: "200 ml kefir + 1 muz" },
+              { label: "Aksam", text: "200 g tavuk sote + 1 tam bugday lavash + bol salata + 150-200 g cacik" }
+            ],
+            note: "Disarida yiyeceksen bugunun en guvenli secimi tavuk sis + salata + ayran."
+          },
+          {
+            name: "Cumartesi / Dinlenme",
+            tag: "Dinlenme",
+            summary: "Aile gunu ise bile kalori dagitimi bozulmasin diye oglen bakliyat, aksam daha temiz protein.",
+            calories: "~2000 kcal",
+            protein: "~175 g",
+            meals: [
+              { label: "Kahvalti", text: "3 yumurta + 100 g lor ile omlet + domates, salatalik" },
+              { label: "Ogle", text: "Olculu zeytinyagli kuru fasulye 1 porsiyon + 150 g yogurt + salata + 1 ince dilim ekmek" },
+              { label: "Ara", text: "250 g yogurt + tarcin" },
+              { label: "Aksam", text: "200 g firin tavuk + brokoli/karnabahar + 1 kucuk patates" }
+            ],
+            note: "Bakliyat saglikli ama limitsiz degil; pilav ve ekmegi ayni ogunde zorlama."
+          },
+          {
+            name: "Pazar / Full Body",
+            tag: "Antrenman",
+            summary: "Haftayi kontrollu ama tok kapat.",
+            calories: "~2200 kcal",
+            protein: "~180 g",
+            meals: [
+              { label: "Kahvalti", text: "Tam bugday lavasta 3 yumurta + 100 g lor wrap + domates" },
+              { label: "Ogle", text: "200 g tavuk sis + 70 g cig pirinc pilavi + salata + ayran" },
+              { label: "Ara", text: "250 g yogurt + 1 elma" },
+              { label: "Aksam", text: "180 g az yagli kiymayla sebzeli guvec + 200 g yogurt + 200 g patates" }
+            ],
+            note: "Yarin tarti yuksek cikarsa panik yapma; Pazar disarida daha tuzlu yeme egilimi sik gorulur."
+          }
+        ]
+      },
+      {
+        title: "Hafta 2",
+        badge: "Ayni Hedef, Biraz Varyasyon",
+        intro:
+          "Ikinci hafta, sikildigin icin raydan cikmaman icin benzer makrolarla farkli tabaklar veriyor. Yapiyi degistirmiyoruz; cesidi arttiriyoruz.",
+        days: [
+          {
+            name: "Pazartesi / Upper A",
+            tag: "Antrenman",
+            summary: "Yine yuksek protein, ama farkli tabaklar.",
+            calories: "~2180 kcal",
+            protein: "~180 g",
+            meals: [
+              { label: "Kahvalti", text: "3 yumurta + 100 g az yagli beyaz peynir + 2 dilim tam bugday ekmek + yesillik" },
+              { label: "Ogle", text: "180 g tavuk + 250 g haslanmis patates + salata + 150 g yogurt" },
+              { label: "Ara", text: "250 g suzme yogurt + 1 kivi veya 1 elma" },
+              { label: "Aksam", text: "180 g kofte + 70 g cig bulgur + bol salata" }
+            ],
+            note: "Patates, pirince gore daha tok tutuyorsa onu one cikar; ayni kaloride kalmak kaydiyla sorun yok."
+          },
+          {
+            name: "Sali / Dinlenme",
+            tag: "Dinlenme",
+            summary: "Dinlenme gunu yine sebze hacmi ve tokluk.",
+            calories: "~1980 kcal",
+            protein: "~175 g",
+            meals: [
+              { label: "Kahvalti", text: "300 g yogurt + 50 g yulaf + tarcin + 15 g ceviz" },
+              { label: "Ogle", text: "Ton balikli salata kasesi: 1 konserve ton + misir yerine salatalik, domates, marul + limon" },
+              { label: "Ara", text: "2 haslanmis yumurta + maden suyu" },
+              { label: "Aksam", text: "200 g tavuk sote + mantar, kabak, biber + 1 ince dilim ekmek + 150 g cacik" }
+            ],
+            note: "Kuruyemis saglikli ama cok hizli kalori getirir; 1 avuc degil, tarti veya paketli porsiyon dusun."
+          },
+          {
+            name: "Carsamba / Lower",
+            tag: "Antrenman",
+            summary: "Bacak gununde toparlanma icin protein + karb tekrar bir arada.",
+            calories: "~2220 kcal",
+            protein: "~185 g",
+            meals: [
+              { label: "Kahvalti", text: "3 yumurta + 120 g lor + 2 dilim ekmek + domates" },
+              { label: "Ogle", text: "200 g tavuk veya hindi + 70 g cig pirinc + ayran + salata" },
+              { label: "Ara", text: "250 g yogurt + 1 muz" },
+              { label: "Aksam", text: "200 g az yagli kiymayla kabak dolmasi veya kabak yemegi + 200 g yogurt + 200 g patates" }
+            ],
+            note: "Lower gunu sonrasi gece acikligi olursa 150-200 g ekstra yogurt daha iyi secimdir; tatliyla bozma."
+          },
+          {
+            name: "Persembe / Dinlenme",
+            tag: "Dinlenme",
+            summary: "Yag ve karbonhidrat dengeli, hacim yuksek.",
+            calories: "~2000 kcal",
+            protein: "~170 g",
+            meals: [
+              { label: "Kahvalti", text: "Menemen (3 yumurta) + 60 g beyaz peynir + bol yesillik" },
+              { label: "Ogle", text: "Nohutlu tavuklu salata: 150 g tavuk + 80 g haslanmis nohut + marul, roka, domates" },
+              { label: "Ara", text: "200 ml kefir + 1 armut veya elma" },
+              { label: "Aksam", text: "180 g firin balik veya tavuk + karnabahar/brokoli + 150 g yogurt" }
+            ],
+            note: "Soslarin kaloriye katkisi gizlidir. Mayonez ve hazir soslari 14 gunlugune sifirla."
+          },
+          {
+            name: "Cuma / Upper B",
+            tag: "Antrenman",
+            summary: "Daha klasik, daha uygulanabilir bir gym gunu menusu.",
+            calories: "~2200 kcal",
+            protein: "~180 g",
+            meals: [
+              { label: "Kahvalti", text: "250 g yogurt + 60 g yulaf + 2 haslanmis yumurta + cilek" },
+              { label: "Ogle", text: "180 g kofte + 250 g firin patates + salata" },
+              { label: "Ara", text: "200 ml kefir + 1 muz" },
+              { label: "Aksam", text: "200 g tavuklu tam bugday durUm + bol salata + cacik" }
+            ],
+            note: "Bugun disaridaysan doneri porsiyon al, patates kizartmasi ve tatliyi gec."
+          },
+          {
+            name: "Cumartesi / Dinlenme",
+            tag: "Dinlenme",
+            summary: "Hafta sonu kontrol gunu; serbest ogun yerine kontrollu rahatlik.",
+            calories: "~1980 kcal",
+            protein: "~175 g",
+            meals: [
+              { label: "Kahvalti", text: "3 yumurta + 100 g lor + domates/salatalik + 1-2 ince dilim ekmek" },
+              { label: "Ogle", text: "Mercimek corbasi + 150 g tavuk veya kofte + salata" },
+              { label: "Ara", text: "250 g suzme yogurt + tarcin" },
+              { label: "Aksam", text: "200 g izgara tavuk + sebze tepsisi + 1 kucuk patates veya 60 g cig bulgurdan pilav" }
+            ],
+            note: "Aksam daveti varsa tabak sirasi: once protein, sonra salata, en son karbonhidrat."
+          },
+          {
+            name: "Pazar / Full Body",
+            tag: "Antrenman",
+            summary: "2 haftayi temiz kapatma gunu.",
+            calories: "~2200 kcal",
+            protein: "~180 g",
+            meals: [
+              { label: "Kahvalti", text: "Tam bugday lavasta 3 yumurta + 100 g lor + yesillik wrap" },
+              { label: "Ogle", text: "200 g tavuk sis veya izgara kofte + 70 g cig pirinc pilavi + ayran + salata" },
+              { label: "Ara", text: "250 g yogurt + 1 meyve" },
+              { label: "Aksam", text: "180 g az yagli kiyma ile sebzeli guvec + 150-200 g yogurt + 200 g patates" }
+            ],
+            note: "Bugun bitince 14 gunun ortalama tartisini ve bel cevrendeki farki not et; tek bir tarti degil ortalama onemli."
+          }
+        ]
+      }
+    ];
+
+    const shopping = [
+      {
+        title: "Protein Omurgasi",
+        body: "1 haftalik ortalama ihtiyac. Evde kac kisi yedigine gore ayarla.",
+        list: [
+          "24-30 adet yumurta",
+          "1.8-2.5 kg tavuk veya hindi gogus",
+          "800 g-1.2 kg az yagli dana kiyma/kofte",
+          "4-6 konserve ton baligi",
+          "2.5-3.5 kg yogurt / suzme yogurt / cacik icin yogurt",
+          "700-1000 g lor veya az yagli beyaz peynir",
+          "1-2 litre kefir"
+        ]
+      },
+      {
+        title: "Karbonhidrat Kontrolu",
+        body: "Tam yasak yerine olculu kullandigimiz kaynaklar.",
+        list: [
+          "500-750 g yulaf",
+          "750 g-1 kg bulgur",
+          "500-750 g pirinc",
+          "2-3 kg patates",
+          "Tam bugday ekmek veya lavash",
+          "500 g-1 kg mercimek",
+          "500 g nohut veya kuru fasulye"
+        ]
+      },
+      {
+        title: "Sebze ve Meyve",
+        body: "Tokluk ve mikronutrient icin planin sigortasi.",
+        list: [
+          "Domates, salatalik, biber, roka, marul, maydanoz",
+          "Kabak, patlican, mantar, brokoli, karnabahar, taze fasulye",
+          "Sogan, sarimsak, limon",
+          "Elma, muz, armut",
+          "Mevsime gore cilek, kiraz veya benzeri dusuk enerjili meyve"
+        ]
+      },
+      {
+        title: "Hazirlik 90 Dakika",
+        body: "Pazar veya dinlenme gunu once toplu hazirlik yaparsan plana baglilik dramatik artar.",
+        list: [
+          "1-1.5 kg tavugu firinla veya tavada tek seferde pisir",
+          "3-4 gunluk bulgur/pirinc tabanini toplu hazirla",
+          "8-10 adet haslanmis yumurta tut",
+          "Salata malzemelerini yikayip kutula",
+          "Yogurt porsiyonlarini kaselere ayir"
+        ]
+      }
+    ];
+
+    const restaurant = [
+      {
+        title: "En guvenli secimler",
+        body:
+          "Tavuk sis, izgara kofte, izgara balik, mercimek corbasi + izgara protein, doner porsiyon + salata + ayran kombinasyonlari en az hasarla ilerler.",
+        list: [
+          "Ekstra pilav, patates kizartmasi ve tatliyi ayni tabakta birlestirme.",
+          "Lavas/ekmek geldiyse otomatik yeme; planli ye."
+        ]
+      },
+      {
+        title: "Kahvalti disaridaysa",
+        body:
+          "Menemen, yumurta, beyaz peynir, domates, salatalik, yesillik ekseni daha guvenli. Bal-kaymak, recel, borek, pogaca kalori acigini tek ogunde silebilir.",
+        list: [
+          "Ekmek porsiyonunu 2 ince dilim civarinda tut.",
+          "Sucuk seversen bile bu 14 gunde ana eksen yapma."
+        ]
+      },
+      {
+        title: "Lahmacun / pide senaryosu",
+        body:
+          "Tamamen yasak olmak zorunda degil ama spontane gitmemeli. O gun diger ogunlerdeki yagi ve ekmegi dusurup porsiyonu sinirla.",
+        list: [
+          "2 lahmacun + ayran + salata genelde daha kontrollu bir cikar.",
+          "Pide, kola ve tatliyi ayni anda toplama."
+        ]
+      },
+      {
+        title: "Aile yemegi kurtarma plani",
+        body:
+          "Tabagi soyle kur: once protein, sonra salata/sebze, sonra niastali kisim. Yani pilav, makarna, borek tabagi yonetmesin; sen tabagi yonet.",
+        list: [
+          "Tatliyi 'yarim porsiyon + paylasimli' yapmak tam yasaktan daha uygulanabilir olabilir.",
+          "Bir gunluk sapma icin ertesi gun ac kalma; plana geri don."
+        ]
+      }
+    ];
+
+    const adjustments = [
+      {
+        title: "Tarti nasil okunur?",
+        body:
+          "Her sabah tuvalet sonrasi, ac karnina, benzer kiyafetle tartil. Sonra tek sayiya degil 7 gunluk ortalamaya bak. Ozellikle tuzlu yemek, disari yemek ve yogun bacak antrenmani ertesi su tutabilir.",
+        list: [
+          "Bel cevresini haftada 2 kez gobek hizasindan olc.",
+          "Ayna + bel cevresi + 7 gun ortalamasi birlikte daha dogru hikaye anlatir."
+        ]
+      },
+      {
+        title: "Ne zaman kalori kisilir?",
+        body:
+          "7 tam gun sonunda ortalama agirlik belirgin oynamadiysa once 150-200 kcal dus. En temiz yol, gunde 30-40 g karbonhidrat veya 10-15 g yag eksiltmektir.",
+        list: [
+          "Yogurt veya protein eksiltme; once ekmek, pilav, fazla yag ve kuruyemise bak.",
+          "Ayni anda hem kalori hem adim hem cardio arttirma; once tek dugme cevir."
+        ]
+      },
+      {
+        title: "Ne zaman kalori artirilir?",
+        body:
+          "Ilk haftadan sonra haftalik dusus 1.2 kg'yi geciyor, halsizlik artiyor, antrenman kotu gidiyor ve gun boyu donme oluyorsa 100-150 kcal geri eklemek daha zeki olabilir.",
+        list: [
+          "Ek kaloriyi once karbonhidrattan eklemek genelde daha iyi calisir.",
+          "Tam gaz gitmek yerine 2 hafta duzgun gitmek daha degerli."
+        ]
+      },
+      {
+        title: "14 gunluk kirmizi cizgiler",
+        body:
+          "Hizli sonuc istiyorsan en buyuk kaldiraclar bunlar: sivi kaloriyi sil, alkolu kes, tatliyi rutin olmaktan cikar, yagi olc, adimlari dusurme ve uykuyu bozma.",
+        list: [
+          "Sekersiz cay/kahve, su, soda serbest; latte, meyve suyu, gazoz ve sekerli icecekler disari.",
+          "Gece atistirmasini 'biraz' diye hafife alma; planin cogu orada kayar."
+        ]
+      }
+    ];
+
+    const sources = [
+      {
+        title: "CDC Weight Loss",
+        body:
+          "CDC, daha iyi surdurulebilen kilo kaybi icin yaklasik haftada 1-2 lb bandini ve uyku, hareket, stres ve beslenmenin birlikte ele alinmasini vurguluyor.",
+        href: "https://www.cdc.gov/healthy-weight-growth/losing-weight/index.html",
+        tag: "17 Ocak 2025"
+      },
+      {
+        title: "CDC Physical Activity",
+        body:
+          "CDC, genel saglik icin haftada en az 150 dakika orta siddette aktivite ve 2 gun kas guclendirme öneriyor; kilo yonetiminde diyet + aktivite kombinasyonunun altini ciziyor.",
+        href: "https://www.cdc.gov/healthy-weight-growth/physical-activity/index.html",
+        tag: "29 Nisan 2026"
+      },
+      {
+        title: "Endotext Obesity Management",
+        body:
+          "NCBI Endotext ozeti, davranissal kilo yonetiminde temel diyet hedefini 500-750 kcal/gun acik olarak veriyor ve bircok protokolde 1200-2000 kcal/gun bandini tartisiyor.",
+        href: "https://www.ncbi.nlm.nih.gov/books/NBK278952/",
+        tag: "2026 erisimi"
+      },
+      {
+        title: "Protein and Weight Loss",
+        body:
+          "2024 meta-analiz ozetine gore, daha yuksek protein alimi kilo vermek isteyen fazla kilolu/obez yetiskinlerde kas kutlesi kaybini anlamli sekilde azaltabiliyor. Benim 170-190 g hedefim bu bulgu ve senin antrenman durumundan cikardigim pratik uygulama araligidir.",
+        href: "https://europepmc.org/article/med/39002131",
+        tag: "2024"
+      },
+      {
+        title: "Turkiye Beslenme Rehberi Cizgisi",
+        body:
+          "FAO'nun Turkiye sayfasi, yerel rehberin dort yaprakli yonunu ozetliyor: sut ve sut urunleri; et-yumurta-balik-kurubaklagil; sebze-meyve; ekmek-tahil. Bu sayfayi yerel gida secimini cizmek icin kullandim.",
+        href: "https://www.fao.org/nutrition/education/food-dietary-guidelines/regions/countries/turkey/en/",
+        tag: "FAO / Turkiye"
+      },
+      {
+        title: "TUBER 2022 PDF",
+        body:
+          "Saglik Bakanligi'nin TUBER 2022 dokumani, Turkiye'ye ozgu beslenme rehberinin guncel referans metinlerinden biri.",
+        href: "https://hsgm.saglik.gov.tr/media/attachments/2025/05/12/turkiye-beslenme-rehberi-2022.pdf",
+        tag: "TUBER 2022"
+      }
+    ];
+
+    function renderPrinciples() {
+      const wrap = document.getElementById("principles");
+      wrap.innerHTML = principles.map(item => `
+        <article class="card">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+          <ul>${item.list.map(line => `<li>${line}</li>`).join("")}</ul>
+        </article>
+      `).join("");
+    }
+
+    function renderTargets() {
+      const wrap = document.getElementById("targets");
+      wrap.innerHTML = targets.map(item => `
+        <article class="card">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+          <div class="pill-row">${item.pills.map(pill => `<span class="micro-pill">${pill}</span>`).join("")}</div>
+        </article>
+      `).join("");
+    }
+
+    function renderWeeks() {
+      const wrap = document.getElementById("weeks");
+      wrap.innerHTML = weeks.map(week => `
+        <section class="week-wrap">
+          <div class="week-head">
+            <div>
+              <h2>${week.title}</h2>
+              <p>${week.intro}</p>
+            </div>
+            <div class="week-tag">${week.badge}</div>
+          </div>
+          <div class="week-days">
+            ${week.days.map(day => `
+              <article class="day-card">
+                <div class="day-head">
+                  <div>
+                    <h3>${day.name}</h3>
+                    <p>${day.summary}</p>
+                  </div>
+                  <div class="day-badge">${day.tag}</div>
+                </div>
+                <div class="stat-row">
+                  <div class="stat">
+                    <span class="stat-label">Enerji</span>
+                    <span class="stat-value">${day.calories}</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-label">Protein</span>
+                    <span class="stat-value">${day.protein}</span>
+                  </div>
+                </div>
+                <div class="meal-grid">
+                  ${day.meals.map(meal => `
+                    <div class="meal-card">
+                      <div class="meal-label">${meal.label}</div>
+                      <p>${meal.text}</p>
+                    </div>
+                  `).join("")}
+                </div>
+                <div class="day-note"><strong>Not:</strong> ${day.note}</div>
+              </article>
+            `).join("")}
+          </div>
+        </section>
+      `).join("");
+    }
+
+    function renderShopping() {
+      const wrap = document.getElementById("shopping-grid");
+      wrap.innerHTML = shopping.map(item => `
+        <article class="shopping-card">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+          <ul>${item.list.map(line => `<li>${line}</li>`).join("")}</ul>
+        </article>
+      `).join("");
+    }
+
+    function renderRestaurant() {
+      const wrap = document.getElementById("restaurant-grid");
+      wrap.innerHTML = restaurant.map(item => `
+        <article class="footer-card">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+          <ul>${item.list.map(line => `<li>${line}</li>`).join("")}</ul>
+        </article>
+      `).join("");
+    }
+
+    function renderAdjustments() {
+      const wrap = document.getElementById("adjustment-grid");
+      wrap.innerHTML = adjustments.map(item => `
+        <article class="footer-card">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+          <ul>${item.list.map(line => `<li>${line}</li>`).join("")}</ul>
+        </article>
+      `).join("");
+    }
+
+    function renderSources() {
+      const wrap = document.getElementById("sources-grid");
+      wrap.innerHTML = sources.map(item => `
+        <article class="footer-card">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+          <a href="${item.href}" target="_blank" rel="noreferrer">${item.href}</a>
+          <div class="source-tag">${item.tag}</div>
+        </article>
+      `).join("");
+    }
+
+    renderPrinciples();
+    renderTargets();
+    renderWeeks();
+    renderShopping();
+    renderRestaurant();
+    renderAdjustments();
+    renderSources();
+  </script>
+</body>
+</html>
