@@ -474,8 +474,8 @@
       </div>
       <div class="hero-grid">
         <div class="metric">
-          <strong>2000-2200 kcal</strong>
-          <span>Ortalama gunluk baslangic araligi</span>
+          <strong>1800-2050 kcal</strong>
+          <span>Daha agresif 14 gunluk mini-cut araligi</span>
         </div>
         <div class="metric">
           <strong>170-190 g</strong>
@@ -486,8 +486,8 @@
           <span>Her gun, tempolu yuruyus dahil</span>
         </div>
         <div class="metric">
-          <strong>0.5-1.0 kg/hafta</strong>
-          <span>Guvenli yag kaybi hedefi; ilk hafta su agirligi daha hizli oynayabilir</span>
+          <strong>0.8-1.2 kg/hafta</strong>
+          <span>Gercekci hedef; ilk hafta tartida 1.5-2+ kg su/odem dususu gorulebilir</span>
         </div>
       </div>
     </header>
@@ -510,6 +510,19 @@
         </div>
       </div>
       <div class="section-grid" id="targets"></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Oglen Hafif Surum</h2>
+          <p>Eger oglen buyuk tabaklar sana ters geliyorsa, butun planin en kolay kismi buradan kisilir. Asagidaki opsiyonlar, mevcut ogle ogunlerinin yerine gecebilir ve plani daha agresif hale getirir.</p>
+        </div>
+      </div>
+      <div class="section-grid" id="compact-lunches"></div>
+      <div class="fine-print">
+        Buradaki oglen hafif opsiyonlarini kullanirsan gunluk toplam kalori kabaca <strong>150-300 kcal</strong> daha asagi iner. Bu, 2 haftalik mini-cut icin mantikli olabilir. Ama bunu kullanman, <strong>haftada 2 kg gercek yag kaybi</strong> hedefini saglikli yapmaz; o rakam en fazla ilk hafta su ve glikojen dususuyle tartida gorulebilir.
+      </div>
     </section>
 
     <section id="plan">
@@ -608,6 +621,15 @@
         ]
       },
       {
+        title: "2 kg/hafta gercekci mi?",
+        body:
+          "Burada durup net olayim: 100 kg birinde haftada 2 kg kayip tartida bazen gorulebilir, ama bunun tamami yag olmaz. CDC ve NHS cizgisi hala kabaca 0.5-1.0 kg/hafta bandini daha guvenli buluyor. 2 kg/hafta, ozellikle ust uste gittiginde genelde fazla buyuk acik demektir.",
+        list: [
+          "Ilk hafta karb ve tuz dusunce 1.5-2+ kg tarti dususu normal olabilir.",
+          "Ama bunu 'haftada 2 kg yag yakiyorum' diye okumak yaniltici olur."
+        ]
+      },
+      {
         title: "Turkiye mutfagina uyarlama",
         body:
           "Plan, TUBER mantigina ters gitmeden; yumurta, yogurt, lor, tavuk, kofte, bulgur, mercimek, nohut, sebze ve zeytinyagini merkeze aliyor. Yani pahali 'fit' urunlerden cok, markette ve pazarda bulunan gidalara yaslaniyor.",
@@ -622,14 +644,14 @@
       {
         title: "Antrenman Gunu",
         body:
-          "Baslangic hedefin: yaklasik 2150-2250 kcal, 175-190 g protein, 180-220 g karbonhidrat, 60-70 g yag.",
-        pills: ["Pre/posta biraz daha karbonhidrat", "Protein sabit", "Yag kontrollu"]
+          "Agresif mini-cut hedefin: yaklasik 1900-2050 kcal, 170-190 g protein, 140-190 g karbonhidrat, 55-65 g yag.",
+        pills: ["Oglen daha hafif olabilir", "Protein sabit", "Yag kontrollu"]
       },
       {
         title: "Dinlenme Gunu",
         body:
-          "Baslangic hedefin: yaklasik 1950-2050 kcal, 175-190 g protein, 120-160 g karbonhidrat, 65-75 g yag.",
-        pills: ["Karbonhidrat bir tik asagi", "Sebze hacmi yuksek", "Protein yine sabit"]
+          "Agresif mini-cut hedefin: yaklasik 1750-1900 kcal, 170-190 g protein, 90-140 g karbonhidrat, 55-70 g yag.",
+        pills: ["Karbonhidrat biraz daha asagi", "Sebze hacmi yuksek", "Protein yine sabit"]
       },
       {
         title: "Kime gore hazir?",
@@ -648,6 +670,29 @@
         body:
           "Ilk 7 gun bitmeden kaloriyle oynama. 7 gunluk ortalama agirlik neredeyse hic inmiyorsa 150-200 kcal kes; performans sert dusup bas donmesi artiyorsa 100-150 kcal ekle.",
         pills: ["Gunluk tarti", "Haftalik ortalama", "Bel cevresi takibi"]
+      }
+    ];
+
+    const compactLunches = [
+      {
+        title: "Secenek 1 / En hafif",
+        body:
+          "1 porsiyon whey + 1 muz veya 1 elma + sade kahve. Yaklasik 220-260 kcal. Zaman yoksa ve oglen acikligi hafifse en pratik secim bu."
+      },
+      {
+        title: "Secenek 2 / Hafif ama daha tok",
+        body:
+          "1 porsiyon whey + 1 tam bugday lavaşa 80-100 g ton baligi veya tavuk + yesillik. Yaklasik 320-400 kcal. Ofis veya disari kosullarinda iyi gider."
+      },
+      {
+        title: "Secenek 3 / Kaseli kolay ogle",
+        body:
+          "200 g suzme yogurt + 1 porsiyon whey karistir + tarcin + 1 meyve. Yaklasik 300-360 kcal. Kasikla yenebilen, tok tutan ve protein yogun opsiyon."
+      },
+      {
+        title: "Kural",
+        body:
+          "14 gunluk planin herhangi bir ogle ogununu bunlardan biriyle degistirebilirsin. Ogleyi kisiyorsan aksam proteinini kisma; acikligi tatliyla degil sebze ve suyla yonet."
       }
     ];
 
@@ -988,10 +1033,19 @@
       {
         title: "Ne zaman kalori artirilir?",
         body:
-          "Ilk haftadan sonra haftalik dusus 1.2 kg'yi geciyor, halsizlik artiyor, antrenman kotu gidiyor ve gun boyu donme oluyorsa 100-150 kcal geri eklemek daha zeki olabilir.",
+          "Ilk haftadan sonra haftalik dusus 1.2-1.4 kg'yi geciyor, halsizlik artiyor, antrenman kotu gidiyor ve gun boyu donme oluyorsa 100-150 kcal geri eklemek daha zeki olabilir.",
         list: [
           "Ek kaloriyi once karbonhidrattan eklemek genelde daha iyi calisir.",
           "Tam gaz gitmek yerine 2 hafta duzgun gitmek daha degerli."
+        ]
+      },
+      {
+        title: "2 kg/hafta neden hedef degil?",
+        body:
+          "Yaklasik 2 kg/hafta gercek yag kaybi, cogu kiside asiri buyuk bir acik ister. Bu; acikma, performans dususu, kas kaybi, geri sekme ve hizli kilo kaybiyla iliskili safra tasi riskini arttirabilir.",
+        list: [
+          "Ilk haftadaki sert dusus cogu zaman su + glikojen + biraz yag karisimidir.",
+          "Bu yuzden hedefi tarti soku degil, 14 gun sonunda daha iyi kompozisyon olarak okumak daha dogru."
         ]
       },
       {
@@ -1082,6 +1136,16 @@
           <h3>${item.title}</h3>
           <p>${item.body}</p>
           <div class="pill-row">${item.pills.map(pill => `<span class="micro-pill">${pill}</span>`).join("")}</div>
+        </article>
+      `).join("");
+    }
+
+    function renderCompactLunches() {
+      const wrap = document.getElementById("compact-lunches");
+      wrap.innerHTML = compactLunches.map(item => `
+        <article class="card">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
         </article>
       `).join("");
     }
@@ -1180,6 +1244,7 @@
 
     renderPrinciples();
     renderTargets();
+    renderCompactLunches();
     renderWeeks();
     renderShopping();
     renderRestaurant();
