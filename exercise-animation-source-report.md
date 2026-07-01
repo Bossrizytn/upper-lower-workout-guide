@@ -12,6 +12,10 @@ Important caveat:
 - For a quick prototype this is workable.
 - For a long-lived public site, relying entirely on third-party hosted GIF URLs is still a product risk.
 
+July 1, 2026 update:
+- That risk materialized in production: the previously hotlinked GIF URLs started returning `401/403`, so the live page fell back to the SVG motions.
+- The workout page now mirrors the selected GIFs locally inside this repo and validates that `index.html` does not reintroduce third-party GIF hotlinks.
+
 ## Summary
 
 - Safe to replace now: 22 unique movements
